@@ -1,0 +1,96 @@
+{
+  "info": {
+    "name": "Ticketing Backend - Forgot Password API",
+    "description": "API Collection untuk testing Forgot Password dengan OTP via WhatsApp",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Check Bot Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/forgot-password/bot-status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "forgot-password", "bot-status"]
+        },
+        "description": "Check WhatsApp Bot status"
+      }
+    },
+    {
+      "name": "2. Request OTP",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nama\": \"John Doe\",\n  \"noHp\": \"6281234567890\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/forgot-password/request-otp",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "forgot-password", "request-otp"]
+        },
+        "description": "Step 1: Request OTP (input nama & nomor HP)"
+      }
+    },
+    {
+      "name": "3. Verify OTP",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"noHp\": \"6281234567890\",\n  \"otp\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/forgot-password/verify-otp",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "forgot-password", "verify-otp"]
+        },
+        "description": "Step 2: Verify OTP (gunakan OTP dari response step 1 atau testOTP jika bot tidak ready)"
+      }
+    },
+    {
+      "name": "4. Reset Password",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"noHp\": \"6281234567890\",\n  \"otp\": \"123456\",\n  \"newPassword\": \"newPassword123\",\n  \"confirmPassword\": \"newPassword123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/forgot-password/reset-password",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "forgot-password", "reset-password"]
+        },
+        "description": "Step 3: Reset Password (setelah OTP terverifikasi)"
+      }
+    }
+  ]
+}

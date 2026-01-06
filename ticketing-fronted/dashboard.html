@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Ticketing Bioskop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-light">
+
+<div class="topbar">
+  <div class="topbar-content">
+    <div class="d-flex align-items-center gap-3">
+      <button class="burger-btn" onclick="toggleSidebar()">
+        <i class="bi bi-list"></i>
+      </button>
+      <h2 class="logo mb-0">Cinemas's</h2>
+    </div>
+
+    <div class="search-wrapper">
+      <input type="text" class="form-control search-input" placeholder="Cari film...">
+    </div>
+  </div>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <h5 class="sidebar-title">
+    <button class="sidebar-burger" type="button">
+        <i class="bi bi-list"></i>
+    </button>
+    <span class="sidebar-text">Cinemas's</span>
+  </h5>
+    <a href="dashboard.html?genre=all" data-genre="all"><i class="bi bi-grid"></i>Semua</a>
+    <a href="dashboard.html?genre=action" data-genre="action"><i class="bi bi-lightning"></i>Action</a>
+    <a href="dashboard.html?genre=adventure" data-genre="adventure"><i class="bi bi-compass"></i>Adventure</a>
+    <a href="dashboard.html?genre=animation" data-genre="animation"><i class="bi bi-balloon"></i>Animation</a>
+    <a href="dashboard.html?genre=comedy" data-genre="comedy"><i class="bi bi-emoji-laughing"></i>Comedy</a>
+    <a href="dashboard.html?genre=drama" data-genre="drama"><i class="bi bi-heart"></i>Drama</a>
+    <a href="dashboard.html?genre=horror" data-genre="horror"><i class="fa-solid fa-droplet"></i>Horror</a>
+    <a href="dashboard.html?genre=romance" data-genre="romance"><i class="bi bi-chat-heart"></i>Romance</a>
+  <hr>
+
+  <a href="profil.html"><i class="bi bi-person-circle"></i> Profil</a>
+  <a href="index.html" class="text-danger"><i class="bi bi-box-arrow-right"></i> Logout</a>
+</div>
+
+<div class="container py-5" >
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card film-card h-100 shadow-sm" data-genre="action">
+                <img src="assets/images/film_avatar.jpeg" class="card-img-top" alt="Poster Film">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Avatar: Fire and Ash</h5>
+
+                    <p class="card-text mb-1">
+                        <strong>Genre:</strong> Action
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Sinopsis:</strong> Avatar: Fire and Ash melanjutkan kisah keluarga Sully 
+                        yang berduka setelah kematian Neteyam, di mana mereka bergabung dengan klan 
+                        nomaden Tlalim (Wind Traders) untuk mencari perlindungan, namun malah terlibat 
+                        konflik baru dengan Ash People (Suku Mangkwan), suku Na'vi yang brutal dan memuja 
+                        api, yang dipimpin oleh Varang, membawa pertempuran baru yang lebih personal dan 
+                        emosional, menggali sisi gelap Pandora serta perjuangan Jake sebagai kepala keluarga. 
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Durasi:</strong> 3j 17m
+                    </p>
+                    <p class="card-text">
+                        <strong>Rating:</strong> ⭐ 9.8 / 10
+                    </p>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="https://youtu.be/nb_fFj_0rq8?si=DDl25Jdn4eVymM7t" class="btn btn-biruw w-100">
+                        Lihat Trailer 
+                    </a>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="pilih_kursi.html?film=avatar" class="btn btn-primary w-100" onclick="setFilmData('Avatar: Fire and Ash', 'action')">
+                        Pesan Tiket
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card film-card h-100 shadow-sm" data-genre="animation">
+                <img src="assets/images/film_zootopia.jpg" class="card-img-top" alt="Poster Film">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">ZOOTOPIA 2</h5>
+
+                    <p class="card-text mb-1">
+                        <strong>Genre:</strong> Animation
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Sinopsis:</strong> Zootopia 2 melanjutkan petualangan Judy Hopps dan Nick 
+                        Wilde dalam misi mengungkap misteri kemunculan reptil tak dikenal bernama Gary
+                        De'Snake di Zootopia, memaksa mereka menyamar dan menjelajahi wilayah baru seperti 
+                        Marsh Market, menguji hubungan profesional mereka, dan mengungkap sejarah tersembunyi 
+                        kota sambil dibantu karakter baru seperti Nibbles Maplestick dan terapis Dr. Fuzzby. 
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Durasi:</strong> 1j 50m
+                    </p>
+                    <p class="card-text">
+                        <strong>Rating:</strong> ⭐ 9.7 / 10
+                    </p>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="https://youtu.be/BjkIOU5PhyQ?si=ShOhiRZS2QvMMC7M" class="btn btn-biruw w-100">
+                        Lihat Trailer 
+                    </a>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="pilih_kursi.html?film=zootopia" class="btn btn-primary w-100" onclick="setFilmData('ZOOTOPIA 2', 'animation')">
+                        Pesan Tiket
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card film-card h-100 shadow-sm" data-genre="comedy">
+                <img src="assets/images/film_agaklaen.jpg" class="card-img-top" alt="Poster Film">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Agak Laen: Menyala Pantiku!</h5>
+
+                    <p class="card-text mb-1">
+                        <strong>Genre:</strong> Comedy
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Sinopsis:</strong> Agak Laen: Menyala Pantiku! mengisahkan empat detektif 
+                        cupu (Bene, Boris, Jegel, Oki) yang mendapat kesempatan terakhir untuk menyelamatkan 
+                        karier mereka: menyamar dan menyusup ke panti jompo untuk mencari buronan kasus pembunuhan 
+                        anak wali kota, menghasilkan kekacauan komedi absurd saat mereka menghadapi tingkah unik 
+                        penghuni panti, serta masalah pribadi masing-masing, menjadikannya misi nekat yang penuh 
+                        tawa, aksi, dan drama personal. 
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Durasi:</strong> 1j 59m
+                    </p>
+                    <p class="card-text">
+                        <strong>Rating:</strong> ⭐ 9.9 / 10
+                    </p>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="https://youtu.be/QxgqR7yXxdA?si=F5fVQP1vglfTuWDb" class="btn btn-biruw w-100">
+                        Lihat Trailer 
+                    </a>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="pilih_kursi.html?film=agak" class="btn btn-primary w-100" onclick="setFilmData('Agak Laen: Menyala Pantiku', 'comedy')">
+                        Pesan Tiket
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card film-card h-100 shadow-sm" data-genre="adventure">
+                <img src="assets/images/film_jurassic.png" class="card-img-top" alt="Poster Film">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Jurassic World Rebirth</h5>
+
+                    <p class="card-text mb-1">
+                        <strong>Genre:</strong> Adventure
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Sinopsis:</strong> Jurassic World: Rebirth mengambil latar lima tahun 
+                        setelah Dominion, di mana dinosaurus sulit bertahan di dunia, terbatas di zona 
+                        khatulistiwa. Seorang agen operasi khusus, Zora Bennett (Scarlett Johansson), 
+                        memimpin misi mengamankan materi genetik dari tiga dinosaurus raksasa untuk obat, 
+                        namun misi ini bertemu dengan keluarga sipil yang terdampar di pulau terlarang, 
+                        lokasi bekas fasilitas Jurassic Park. Mereka harus menghadapi dinosaurus baru dan 
+                        rahasia mengerikan dari eksperimen tersembunyi yang bisa mengancam masa depan manusia.
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Durasi:</strong> 2j 14m
+                    </p>
+                    <p class="card-text">
+                        <strong>Rating:</strong> ⭐ 9.5 / 10
+                    </p>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="https://youtu.be/jan5CFWs9ic?si=RVQaqEWycf5nqz_8" class="btn btn-biruw w-100">
+                        Lihat Trailer 
+                    </a>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="pilih_kursi.html?film=jurassic" class="btn btn-primary w-100" onclick="setFilmData('Jurassic World Rebirth<', 'adventure')">
+                        Pesan Tiket
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card film-card h-100 shadow-sm" data-genre="drama">
+                <img src="assets/images/film_nia.jpeg" class="card-img-top" alt="Poster Film">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">NIA</h5>
+
+                    <p class="card-text mb-1">
+                        <strong>Genre:</strong> Drama
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Sinopsis:</strong> Film NIA diangkat dari kisah nyata peristiwa tragis yang 
+                        dialami seorang gadis penjual gorengan di Sumatera Barat. Nia adalah gadis 18 tahun 
+                        yang sholehah, rajin, dan berjuang keras membantu keluarganya dengan berjualan gorengan. 
+                        Ia menjadi tulang punggung keluarga setelah orang tuanya bercerai. Ibunya menderita 
+                        penyakit parah, sementara adiknya masih kecil dan sangat bergantung pada Nia. Sayangnya 
+                        Nia pada akhirnya menjadi korban pembunuhan keji oleh residivis pengangguran saat pulang berjualan.
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Durasi:</strong> 1j 50m
+                    </p>
+                    <p class="card-text">
+                        <strong>Rating:</strong> ⭐ 9.1 / 10
+                    </p>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="https://youtu.be/DTizqySyv48?si=STb9qiFJxIh6abC_" class="btn btn-biruw w-100">
+                        Lihat Trailer 
+                    </a>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="pilih_kursi.html?film=nia" class="btn btn-primary w-100" onclick="setFilmData('NIA', 'drama')">
+                        Pesan Tiket
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card film-card h-100 shadow-sm" data-genre="horror">
+                <img src="assets/images/film_7hari.jpg" class="card-img-top" alt="Poster Film">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Sebelum 7 Hari</h5>
+
+                    <p class="card-text mb-1">
+                        <strong>Genre:</strong> Horror
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Sinopsis:</strong> Menceritakan kejadian horor menimpa keluarga Tari. 
+                        Ketika Anggun meninggal dunia, Tari mengajak kedua anaknya untuk datang melayat. 
+                        Mereka bertiga menginap di rumah Anggun. Niat untuk menginap menjadi mimpi buruk 
+                        karena kejadian mengerikan satu per satu datang. Ternyata, Anggun dikutuk dan tidak 
+                        dapat dikuburkan sampai tujuh hari setelah kematiannya. Ritual menakutkan serta kekuatan 
+                        jahat dari perjanjian gelap mengikat ibu mereka. Mereka harus melunasi hutang janji 
+                        tersebut sebelum tujuh hari setelah kematian Anggun agar bisa menguburkannya dan mengakhiri teror arwah yang menuntut balas.
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Durasi:</strong> 1j 47m
+                    </p>
+                    <p class="card-text">
+                        <strong>Rating:</strong> ⭐ 9.0 / 10
+                    </p>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="https://youtu.be/YAcXpW6Em7w?si=RgLPnC4XfWa75cEl" class="btn btn-biruw w-100">
+                        Lihat Trailer 
+                    </a>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="pilih_kursi.html?film=hari" class="btn btn-primary w-100" onclick="setFilmData('Sebelum 7 Hari', 'horror')">
+                        Pesan Tiket
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card film-card h-100 shadow-sm" data-genre="romance">
+                <img src="assets/images/film_komang.jpg" class="card-img-top" alt="Poster Film">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Komang</h5>
+
+                    <p class="card-text mb-1">
+                        <strong>Genre:</strong> Romance
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Sinopsis:</strong> Film Komang mengisahkan perjuangan cinta Ode, pemuda 
+                        Buton, dan Ade, gadis Bali, yang terhalang perbedaan agama, budaya, dan status 
+                        sosial, memaksa Ode merantau ke Jakarta untuk meraih mimpi sebagai komedian demi 
+                        membuktikan cintanya, sementara Ade menghadapi tekanan keluarga dan lamaran pria 
+                        lain yang seiman, menguji ketulusan mereka di tengah restu yang sulit didapat. 
+                    </p>
+                    <p class="card-text mb-1">
+                        <strong>Durasi:</strong> 1j 47m
+                    </p>
+                    <p class="card-text">
+                        <strong>Rating:</strong> ⭐ 9.7 / 10
+                    </p>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="https://youtu.be/JgKiDyzGd5w?si=d8vongdgOCgLxZ-M" class="btn btn-biruw w-100">
+                        Lihat Trailer 
+                    </a>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="pilih_kursi.html?film=kmg" class="btn btn-primary w-100" onclick="setFilmData('Komang', 'romance')">
+                        Pesan Tiket
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+const genreButtons = document.querySelectorAll('.genree-buttons button');
+const films = document.querySelectorAll('.film-card');
+const searchInput = document.querySelector('.search-input');
+const sidebarBurger = document.querySelector('.sidebar-burger');
+
+sidebarBurger.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
+
+
+const params = new URLSearchParams(window.location.search);
+const film = params.get('film');
+const genreFromUrl = params.get('genre');
+
+const filmData = {
+    avatar: { judul: "Avatar: Fire and Ash", harga: 45000 },
+    zootopia: { judul: "Avengers", harga: 40000 },
+    agak: { judul: "Agak Laen: Menyala Pantiku!", harga: 45000 },
+    jurassic: { judul: "Jurassic World Rebirth", harga: 45000 },
+    nia: { judul: "NIA", harga: 45000 },
+    hari: { judul: "Sebelum 7 Hari", harga: 45000 },
+    kmg: { judul: "Komang", harga: 45000 }
+};
+
+let activeGenre = 'all';
+
+if (genreFromUrl) {
+    activeGenre = genreFromUrl;
+}
+
+function filterFilms() {
+    const keyword = searchInput.value.toLowerCase();
+
+    films.forEach(film => {
+        const filmGenre = film.dataset.genre;
+        const title = film.querySelector('.card-title')
+            .textContent.toLowerCase();
+
+        const matchGenre = activeGenre === 'all' || filmGenre === activeGenre;
+        const matchSearch = title.includes(keyword);
+
+        film.parentElement.style.display =
+            (matchGenre && matchSearch) ? 'block' : 'none';
+    });
+}
+
+filterFilms();
+
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+}
+
+function setFilmData(judul, genre) {
+    localStorage.setItem("filmJudul", judul);
+    localStorage.setItem("filmGenre", genre);
+}
+
+document.querySelectorAll('.sidebar a[data-genre]').forEach(item => {
+    item.addEventListener('click', e => {
+        e.preventDefault();
+        activeGenre = item.dataset.genre;
+        filterFilms();
+        toggleSidebar();
+    });
+});
+
+genreButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        genreButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        activeGenre = button.dataset.genre;
+        filterFilms();
+    });
+});
+
+searchInput.addEventListener('input', filterFilms);
+</script>
+
+</body>
+</html>

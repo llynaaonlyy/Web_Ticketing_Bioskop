@@ -1,0 +1,121 @@
+/* RESET SEDERHANA */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* ===== HEADER ===== */
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.btn-back {
+  color: #000;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ===== BRAND / LOGO ===== */
+.about-brand {
+  text-align: center;
+  padding: 36px 20px 24px;
+  background: #ffffff;
+}
+
+.brand-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow:
+    0 0 6px #ffc107,
+    0 0 12px #ffc107,
+    0 0 20px #ffc107;
+  margin-bottom: 14px;
+}
+
+.copyright-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0 auto 8px;
+}
+
+.app-version {
+  font-size: 13px;
+  color: #999;
+}
+
+/* ===== MENU LIST ===== */
+.about-menu {
+  margin-top: 16px;
+  background: #ffffff;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  text-decoration: none;
+  color: #111;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s ease;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item i {
+  font-size: 20px;
+  color: #444;
+}
+
+.menu-item span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.menu-item:hover {
+  background: #f9f9f9;
+}
+
+/* ===== RESPONSIVE (DESKTOP) ===== */
+@media (min-width: 768px) {
+  .about-brand {
+    padding: 48px 20px 32px;
+  }
+
+  .brand-title {
+    font-size: 44px;
+  }
+
+  .about-menu {
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+}

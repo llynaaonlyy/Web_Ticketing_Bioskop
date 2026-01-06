@@ -1,0 +1,23 @@
+# WhatsApp Authentication & Cache
+.wwebjs_auth/**
+.wwebjs_cache/**
+.wwebjs_*
+
+# Data & Logs
+data/
+*.log
+server.log
+
+# Environment & Node
+.env
+.env.local
+node_modules/
+
+# Session files
+*.session
+*.session-lock
+*.json~
+
+# Temporary files
+*.tmp
+*.temp

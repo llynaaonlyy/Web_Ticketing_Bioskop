@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil | Cinemas's</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-light">
+
+<div class="topbar">
+  <div class="topbar-content">
+    <div class="d-flex align-items-center gap-3">
+      <button class="burger-btn">
+        <i class="bi bi-list"></i>
+      </button>
+      <h2 class="logo mb-0">Cinemas's</h2>
+    </div>
+  </div>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <h5 class="sidebar-title">
+    <button class="sidebar-burger" type="button">
+      <i class="bi bi-list"></i>
+    </button>
+    Genre
+  </h5>
+
+  <a href="dashboard.html?genre=all"><i class="bi bi-grid"></i> Semua </a>
+
+  <a href="dashboard.html?genre=action"><i class="bi bi-lightning"></i> Action </a>
+
+  <a href="dashboard.html?genre=adventure"><i class="bi bi-compass"></i> Adventure </a>
+
+  <a href="dashboard.html?genre=animation"><i class="bi bi-balloon"></i> Animation </a>
+
+  <a href="dashboard.html?genre=comedy"><i class="bi bi-emoji-laughing"></i> Comedy </a>
+
+  <a href="dashboard.html?genre=drama"><i class="bi bi-heart"></i> Drama </a>
+
+  <a href="dashboard.html?genre=horror"><i class="fa-solid fa-droplet"></i> Horror </a>
+
+  <a href="dashboard.html?genre=romance"><i class="bi bi-chat-heart"></i> Romance </a>
+  <hr>
+
+  <a href="profil.html"><i class="bi bi-person-circle"></i> Profil </a>
+
+  <a href="index.html" class="text-danger"><i class="bi bi-box-arrow-right"></i> Logout </a>
+</div>
+
+<div class="container py-5 profile-container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <!-- HEADER PROFIL -->
+      <div class="card shadow-sm mb-3">
+        <div class="card-body d-flex align-items-center gap-3">
+          <div class="rounded-circle bg-secondary d-flex justify-content-center align-items-center"
+               style="width:70px;height:70px;">
+            <i class="bi bi-person-fill text-white fs-2"></i>
+          </div>
+
+          <div>
+            <h5 class="fw-bold mb-1" id="profileName">Nama User</h5>
+            <a href="detail-akun.html" class="text-decoration-none text-primary small">
+              Lihat detail akun &gt;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATISTIK UTAMA -->
+      <div class="card shadow-sm mb-3 text-center">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="fw-bold mb-0" id="ticketCount">0</h5>
+              <small class="text-muted">Tiket</small>
+            </div>
+            <div class="col">
+              <h5 class="fw-bold mb-0" id="filmCount">0</h5>
+              <small class="text-muted">Film</small>
+            </div>
+            <div class="col">
+              <h5 class="fw-bold mb-0" id="favoriteGenre">-</h5>
+              <small class="text-muted">Favorit</small>
+            </div>
+          </div>
+
+          <!-- GELAR (TIDAK DIHAPUS) -->
+          <div class="mt-3">
+            <span class="badge bg-primary" id="profileLevel">-</span>
+          </div>
+        </div>
+          <div class="stat-section">
+              <h5>Keaktifan Bulan Ini</h5>
+              <div class="stat-box">
+              <canvas id="activityChart"></canvas>
+              </div>
+          </div>
+      </div>
+
+      <!-- BANTUAN & INFORMASI -->
+      <div class="card shadow-sm mb-3">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Bantuan dan informasi</h6>
+
+          <a href="tentang-kami.html" class="d-flex align-items-center gap-2 mb-3 text-dark text-decoration-none">
+            <i class="bi bi-info-circle"></i>
+            Tentang Kami
+          </a>
+
+          <a href="bantuan-pemesanan.html" class="d-flex align-items-center gap-2 text-dark text-decoration-none">
+            <i class="bi bi-headset"></i>
+            Bantuan pemesanan
+          </a>
+        </div>
+      </div>
+
+      <!-- KELOLA AKUN -->
+      <div class="card shadow-sm mb-5">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Kelola akun Anda</h6>
+
+          <a href="hapus-akun.html" class="d-flex align-items-center gap-2 mb-3 text-dark text-decoration-none">
+            <i class="bi bi-trash"></i>
+            Hapus akun saya
+          </a>
+
+          <a href="index.html" class="d-flex align-items-center gap-2 text-danger text-decoration-none">
+            <i class="bi bi-box-arrow-right"></i>
+            Keluar
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const burgerBtn = document.querySelector('.burger-btn');
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.getElementById('overlay');
+  const closeBtn = document.querySelector('.close-btn');
+  const sidebarBurger = document.querySelector('.sidebar-burger');
+
+  sidebarBurger.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+
+  burgerBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  // if (!user) window.location.href = "profil.html";
+
+  user.ticketCount = user.ticketCount || 0;
+  user.filmCount = user.filmCount || user.ticketCount || 0;
+  user.genreHistory = user.genreHistory || [];
+
+  document.getElementById("ticketCount").innerText = user.ticketCount;
+  document.getElementById("filmCount").innerText = user.filmCount;
+  document.getElementById("profileName").innerText = user.nama;
+
+  function getFavoriteGenre(genres) {
+    if (!genres.length) return "-";
+    const count = {};
+    genres.forEach(g => count[g] = (count[g] || 0) + 1);
+    return Object.keys(count).reduce((a, b) => count[a] > count[b] ? a : b);
+  }
+
+  document.getElementById("favoriteGenre").innerText =
+    getFavoriteGenre(user.genreHistory);
+
+  function getLevel(film) {
+    if (film <= 2) return "🎟️ Newbie Cinema";
+    if (film <= 5) return "🍿 Beginner Cinema";
+    if (film <= 10) return "🎬 Movie Explorer";
+    if (film <= 15) return "⭐ Film Enthusiast";
+    return "👑 Cinema Master";
+  }
+
+  const ctx = document.getElementById('activityChart');
+
+  const ticketStatsData =
+    JSON.parse(localStorage.getItem("ticketStats")) || {};
+
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  const labels = [];
+  const data = [];
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateKey =
+      `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    labels.push(day.toString());
+    data.push(ticketStatsData[dateKey] || 0);
+  }
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Jumlah Tiket',
+        data,
+        borderWidth: 2,
+        tension: 0.4,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, ticks: { stepSize: 1 } }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

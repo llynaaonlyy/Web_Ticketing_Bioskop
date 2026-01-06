@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tiket Saya</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+
+<body class="bg-dark text-white">
+<div class="container py-5 text-center">
+
+  <div class="ticket-card mx-auto" id="ticketCard">
+    <div class="ticket-header">
+      <span class="ticket-title">E-TIKET BIOSKOP</span>
+    </div>
+
+    <div class="ticket-body">
+      <h4 id="film" class="ticket-film"></h4>
+
+      <div class="ticket-info">
+        <p><span>Kursi</span><b id="kursi"></b></p>
+        <p><span>Total</span><b>Rp <span id="total"></span></b></p>
+        <p><span>Status</span><b class="status-paid">LUNAS</b></p>
+      </div>
+
+      <div class="ticket-divider"></div>
+
+      <div id="qrTiket" class="ticket-qr"></div>
+      <small class="ticket-note">Tunjukkan QR ini ke petugas bioskop</small>
+    </div>
+  </div>
+
+    <div class="mt-4 text-center">
+        <button class="btn btn-download mb-3" onclick="window.print()">
+            Unduh Tiket
+        </button>
+
+        <button class="btn btn-back" onclick="kembaliDashboard()">
+            Kembali ke Beranda
+        </button>
+    </div>
+
+</div>
+
+<script>
+    const filmKey = localStorage.getItem('filmKey');
+    const bookedKey = `bookedSeats_${filmKey}`;
+
+    const bookedSeats = JSON.parse(localStorage.getItem(bookedKey)) || [];
+    const tempSeats = JSON.parse(localStorage.getItem(`tempSeats_${filmKey}`)) || [];
+
+    const finalSeats = [...new Set([...bookedSeats, ...tempSeats])];
+    localStorage.setItem(bookedKey, JSON.stringify(finalSeats));
+
+    localStorage.removeItem(`tempSeats_${filmKey}`);
+
+  document.getElementById("film").textContent =
+    localStorage.getItem("filmJudul");
+  document.getElementById("kursi").textContent =
+    JSON.parse(localStorage.getItem("seats")).join(", ");
+  document.getElementById("total").textContent = localStorage.getItem("total");
+
+  const qrData = {
+  film: localStorage.getItem("filmJudul"),
+  kursi: JSON.parse(localStorage.getItem("seats")),
+  total: localStorage.getItem("total"),
+  waktu: new Date().toISOString()
+  };
+
+  new QRCode(document.getElementById("qrTiket"), {
+    text: JSON.stringify(qrData),
+    width: 150,
+    height: 150
+  });
+  
+  function kembaliDashboard() {
+  window.location.href = "dashboard.html";
+}
+
+  let user = JSON.parse(localStorage.getItem("user"));
+
+  if (user) {
+    user.ticketCount = (user.ticketCount || 0) + 1;
+    user.filmCount   = (user.filmCount || 0) + 1;
+
+    const genreFilm = localStorage.getItem("filmGenre"); 
+    user.genreHistory = user.genreHistory || [];
+
+    if (genreFilm) {
+      user.genreHistory.push(genreFilm);
+    }
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    const now = new Date();
+    const dateKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    
+    const userStatsKey = `ticketStats_${user.email}`;
+    const userStats = JSON.parse(localStorage.getItem(userStatsKey)) || {};
+    
+    userStats[dateKey] = (userStats[dateKey] || 0) + 1;
+    localStorage.setItem(userStatsKey, JSON.stringify(userStats));
+  }
+</script>
+
+</body>
+</html>

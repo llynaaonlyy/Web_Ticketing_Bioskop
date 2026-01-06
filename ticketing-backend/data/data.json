@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nama": "John Doe",
+      "email": "john@example.com",
+      "noHp": "6281234567890",
+      "password": "$2b$10$E9rnJsIZ7T1z5z5z5z5z5OPST9DyMhVxmQ1z5z5z5u"
+    },
+    {
+      "id": 2,
+      "nama": "Jane Smith",
+      "email": "jane@example.com",
+      "noHp": "6289876543210",
+      "password": "$2b$10$E9rnJsIZ7T1z5z5z5z5z5OPST9DyMhVxmQ1z5z5z5u"
+    },
+    {
+      "id": 3,
+      "nama": "Raihan",
+      "email": "hanhan@gmail.com",
+      "noHp": "6285727360656",
+      "password": "cintaku"
+    },
+    {
+      "id": 4,
+      "nama": "Inara Cilik",
+      "email": "inara@gmail.com",
+      "noHp": "6283171076196",
+      "password": "inaracilik"
+    },
+    {
+      "id": 5,
+      "nama": "Mamak",
+      "email": "mamak@gmail.com",
+      "noHp": "6283890793661",
+      "password": "111111"
+    },
+    {
+      "id": 6,
+      "nama": "mas kiki",
+      "email": "kiki@gmail.com",
+      "noHp": "6282134328076",
+      "password": "bankbantul"
+    }
+  ],
+  "otps": []
+}
