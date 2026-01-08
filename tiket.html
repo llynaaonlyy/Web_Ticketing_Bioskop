@@ -98,11 +98,11 @@
     const now = new Date();
     const dateKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
     
-    const userStatsKey = `ticketStats_${user.email}`;
-    const userStats = JSON.parse(localStorage.getItem(userStatsKey)) || {};
-    
-    userStats[dateKey] = (userStats[dateKey] || 0) + 1;
-    localStorage.setItem(userStatsKey, JSON.stringify(userStats));
+    const statsKey = "ticketStats";
+    const stats = JSON.parse(localStorage.getItem(statsKey)) || {};
+
+    stats[dateKey] = (stats[dateKey] || 0) + 1;
+    localStorage.setItem(statsKey, JSON.stringify(stats));
   }
 </script>
 

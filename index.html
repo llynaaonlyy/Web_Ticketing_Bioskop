@@ -34,11 +34,11 @@
                 </div>
             </div>
 
-            <!-- <div class="text-start mb-3">
+            <div class="text-start mb-3">
                 <a href="file:///D:/projek_ticketing/ticketing-backend/frontend-forgot-password.html" class="text-decoration-none">
                     Lupa sandi?
                 </a>
-            </div> -->
+            </div>
 
             <button id="btnLogin" type="submit" class="btn-login">
                 <span class="btn-text">Login</span>
@@ -97,10 +97,19 @@ async function login() {
         const data = await response.json();
 
         if (data.success) {
-            if (data.token) {
-                localStorage.setItem("token", data.token);
-            }
-            window.location.href = "dashboard.html";
+        if (data.token) {
+            localStorage.setItem("token", data.token);
+        }
+
+        // TAMBAHAN PENTING
+        localStorage.setItem("user", JSON.stringify({
+            nama: data.user?.nama || "User",
+            ticketCount: data.user?.ticketCount || 0,
+            filmCount: data.user?.filmCount || 0,
+            genreHistory: data.user?.genreHistory || []
+        }));
+
+        window.location.href = "dashboard.html";
         } else {
             alert(data.message || "Login gagal");
         }
