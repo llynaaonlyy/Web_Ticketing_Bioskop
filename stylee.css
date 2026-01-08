@@ -165,19 +165,22 @@ html {
 }
 
 .about-text {
-  font-size: 14px;
-  line-height: 1.7;
+  text-align: justify;
+  font-size: 15px;
+  line-height: 1.8;
   color: #333;
   margin-bottom: 12px;
 }
 
 .about-list {
+  margin-top: 15px;
   padding-left: 18px;
   margin-bottom: 16px;
 }
 
 .about-list li {
-  font-size: 14px;
+  gap: 6px;
+  font-size: 15px;
   color: #333;
   margin-bottom: 8px;
 }
@@ -248,51 +251,138 @@ html {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-.privacy-title {
-  font-weight: 600;
-  margin-bottom: 10px;
+.privacy-title{
+  font-weight: 750;
+  margin-bottom: 15px;
 }
 
 .privacy-list ol {
+  margin-top: 8px;
+  font-weight: 400;
+  color: #000000; 
+  text-decoration: none;
   padding-left: 18px;
-  margin: 0;
 }
 
 .privacy-list li {
+  gap: 6px;
+  font-size: 15px;
+  color: #333;
   margin-bottom: 8px;
 }
 
-.privacy-list a {
-  color: #3b82f6; 
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.privacy-list a:hover {
-  text-decoration: underline;
-}
 
 .privacy-content section {
   margin-bottom: 24px;
 }
 
-.privacy-content h5 {
-  font-weight: 600;
+.privacy-content h4 {
+  text-align: justify;
+  font-weight: 750;
   margin-bottom: 8px;
 }
 
 .privacy-content p {
   margin-bottom: 8px;
   line-height: 1.6;
-  font-size: 14.5px;
+  font-size: 15px;
 }
 
-.privacy-content ul {
+.privacy-content ol {
+  font-size: 14p.5x;
   padding-left: 18px;
   margin: 6px 0;
 }
 
 .privacy-content li {
-  margin-bottom: 6px;
+  gap: 6px;
+  font-size: 14.5px;
+  color: #333;
+  margin-bottom: 8px;
 }
 
+/* ketentuan penggunaan */
+.card-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.card-content {
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 30px 35px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-content h3 {
+    margin-top: 20px;
+    color: #000000;
+}
+
+.card-content h4 {
+    margin-top: 20px;
+    color: #000000;
+}
+
+.card-content p {
+    text-align: justify;
+    line-height: 1.8;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* bantuan pemesanan */
+.help-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  margin: 20px 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.help-item {
+  border-bottom: 1px solid #eee;
+  padding: 14px 0;
+}
+
+.help-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.help-header h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.help-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.help-item.active .help-content {
+  max-height: 500px;
+}
+
+.help-body {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.help-header i {
+  font-size: 18px;
+  color: #2563eb;
+  transition: transform 0.3s ease;
+}
+
+.help-item.active .help-header i {
+  transform: rotate(180deg);
+}

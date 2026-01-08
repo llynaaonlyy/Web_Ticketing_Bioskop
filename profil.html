@@ -28,7 +28,7 @@
     <button class="sidebar-burger" type="button">
       <i class="bi bi-list"></i>
     </button>
-    Genre
+    <span class="sidebar-text">Cinemas's</span>
   </h5>
 
   <a href="dashboard.html?genre=all"><i class="bi bi-grid"></i> Semua </a>
@@ -122,12 +122,12 @@
         </div>
       </div>
 
-      <!-- KELOLA AKUN -->
       <div class="card shadow-sm mb-5">
         <div class="card-body">
           <h6 class="fw-bold mb-3">Kelola akun Anda</h6>
 
-          <a href="hapus-akun.html" class="d-flex align-items-center gap-2 mb-3 text-dark text-decoration-none">
+          <a href="#" onclick="openDeleteModal()" 
+            class="d-flex align-items-center gap-2 mb-3 text-danger text-decoration-none">
             <i class="bi bi-trash"></i>
             Hapus akun saya
           </a>
@@ -227,6 +227,43 @@
       }
     }
   });
+</script>
+
+
+<div id="deleteOverlay" class="delete-overlay">
+  <div class="delete-modal">
+
+    <h2 class="delete-logo">Cinema's</h2>
+
+    <p class="delete-warning">
+      Apakah Anda yakin ingin menghapus akun Cinema’s?
+      <br><br>
+      Tindakan ini akan menghapus seluruh data akun dan
+      riwayat pemesanan Anda, dan <strong>tidak dapat dibatalkan</strong>.
+    </p>
+
+    <div class="delete-actions">
+      <button class="btn-cancel" onclick="closeDeleteModal()">Batal</button>
+      <button class="btn-delete" onclick="deleteAccount()">Hapus Akun</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function openDeleteModal() {
+    document.getElementById("deleteOverlay").style.display = "flex";
+  }
+
+  function closeDeleteModal() {
+    document.getElementById("deleteOverlay").style.display = "none";
+  }
+
+  function deleteAccount() {
+    localStorage.clear();
+    alert("Akun berhasil dihapus.");
+    window.location.href = "index.html";
+  }
 </script>
 
 </body>
