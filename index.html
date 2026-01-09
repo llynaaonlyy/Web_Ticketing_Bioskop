@@ -104,6 +104,9 @@ async function login() {
         // TAMBAHAN PENTING
         localStorage.setItem("user", JSON.stringify({
             nama: data.user?.nama || "User",
+            email: data.user?.email || loginInput,
+            noHp: data.user?.noHp || "-",
+
             ticketCount: data.user?.ticketCount || 0,
             filmCount: data.user?.filmCount || 0,
             genreHistory: data.user?.genreHistory || []

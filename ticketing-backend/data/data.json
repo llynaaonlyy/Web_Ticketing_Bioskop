@@ -41,6 +41,20 @@
       "email": "kiki@gmail.com",
       "noHp": "6282134328076",
       "password": "bankbantul"
+    },
+    {
+      "id": 7,
+      "nama": "Kim Jennie",
+      "email": "jennie@gmail.com",
+      "noHp": "087329471036",
+      "password": "jennie"
+    },
+    {
+      "id": 8,
+      "nama": "ayah",
+      "email": "ayah@gmail.com",
+      "noHp": "081234567890",
+      "password": "ayahku"
     }
   ],
   "otps": []
